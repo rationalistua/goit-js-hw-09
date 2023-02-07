@@ -23,6 +23,11 @@ form.addEventListener('submit', event => {
   const firstDelayValue = Number(delay.value);
   const delayStepValue = Number(step.value);
   const amountValue = Number(amount.value);
+
+  if (firstDelayValue < 0 || delayStepValue < 0 || amount <= 0){
+    alert('Values must be more than 0');
+  }
+
   for (let position = 1; position <= amountValue; position += 1) {
     const delay = firstDelayValue + delayStepValue * (position - 1);
     createPromise(position, delay)
